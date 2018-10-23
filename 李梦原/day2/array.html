@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var ary=[1,2,3,4];
+  
+    var n= ary.unshift(100)//在数组的首位增加一项
+
+    console.log(n)
+    
+    // ary.shift//删除数组的首位
+    // var item=ary.pop();//删除数组最后一项
+
+    
+
+//     console.log(ary)
+//     function fn(){
+//         return; // return有两个作用，一个是打断函数的执行，一个是返回结果给外界，不写return时默认返回undefined
+//         console.log(111)
+//     }
+//   var n=ary.push(1,{},undefined)//给数组末尾添加项
+//   //返回值时改变后的数组长度
+//   console.log(n,ary)
+
+  ary=[65,34,888,555,123]
+  ary.sort(function (a,b){//  sort的返回结果是排好序之后的数组
+        return b-a;//降序   a-b升序
+  })
+
+    var ary = [];
+    var ary2 = [];
+    var ary3 = ary2;
+    console.log(ary == ary2)//false
+
+
+ary = [65,34,688,456,8908];
+var ary3 = ary.sort(function (a,b) {
+return a -b;
+//返回值a - b 就是一个升序
+// 返回 b-a 就是一个降序
+})//sort 的返回结果是排好序之后的数组
+console.log(ary3 === ary)
+
+
+//reverse
+ary.reverse()//数组的反转，返回结果和原数组是一个地址
+ary=[10,20,30,40]
+ary.forEach(function (item,index){//item是数组的每一项，index是数组当前项的索引
+    
+})
+ary=[10,20,30,40]
+var ary2=ary.filter(function(item,index){
+    return false
+})
+console.log(ary2)
+</script>

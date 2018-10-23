@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* span{
+            width:200px;
+            height:200px;
+            display:inline-block;
+        } */
+    /* div.ff{
+        width:200px;
+        height:200px;
+        text-align: center;
+        border:solid 5px #ccc;
+    } */
+    /* .ff{
+        width:200px;
+        height:200px;
+        background:-webkit-linear-gradient(left top,#ff00bc,#00d3ff,#1c8000);
+        /* 从左上角到右下角的颜色渐变 */
+        /* border-radius: 50%;
+        line-height: 200px;
+        text-align: center;
+        color:#fff;
+        box-shadow: 2px 2px 2px 2px #000000a8; 
+        
+
+    }
+    */
+    /* .cc{
+        width:400px;
+        height: 50px;
+        border:solid 10px #ccc;
+        border-radius: 50px;
+        background: #ff00bc;
+    }
+    #qianduan{
+        background: #1c8000;
+    } */ 
+    .box{
+        width:100px;
+        height: 100px;
+        padding: 20px;
+        border: 10px solid #ccc;
+        box-sizing:content-box;
+    }
+    </style>
+</head>
+<body>
+    <!-- <span>石家庄职业技术学院</span>
+    <span>前端培优班</span>
+    <div class="ff">石家庄职业技术学院</div>
+    <div class="cc" id="qianduan">前段培优班</div> -->
+    <div class="box">石家庄</div>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+</body>
+</html>
+<script>
+  
+      var btn=document.getElementsByTagName('button');
+            for(let i=0;i<btn.length;i++){
+            btn[i].onclick = function () {
+               alert(this.innerHTML)
+            }
+      }
+
+    // var a=b=c=d=12;
+    // d=1;
+    // console.log(a,b,c,d) //12 12 12 1
+    // var x=y=z=[1,2,3,4]//引用数据类型
+    // z[4]=5
+    // console.log(z)
+    // console.log(x,y)
+
+
+    // z=[10,20,30]
+    // z[3]=40
+    // console.log(x,y,z)
+//  var str=".1"
+//  console.log(Number(str))
+//  //空字符串 或 字符串只有空格 那么number得到的结果都是0
+//  console.log(parseInt(str))
+ //只要第一个字符是非数字那么得到的结果就是NaN,若一个不是数字，则往后查找，查找到非数字时结束
+
+//  function sum(x,y,z){
+//     console.log(arguments)//实参集合
+//     var he=0; //存储计算出来的和
+//     for(i=0;i<arguments.length;i++){
+        
+//         he=he+arguments[i];    
+//     }
+//    return he;
+// }
+//     var q=sum(1,2,3,4)
+//     console.log(q)
+    // var n=4%5
+    // if(n>=2 && n<=3){
+    //     console.log(2)
+    // }
+    // if(n>=2 || n<=3){
+    //     console.log("any number")
+    // }
+//布尔数据类型中，有5个是false，其他的全是true
+//0 NaN '' null undefined
+    // var a=1 || 2;
+    // var b=0 && 2;
+    // console.log(a,b)
+    //对于 && 来说，前边成立给后边，前边不成立给前边
+    //对于 || 来说，前边成立给前边，前边不成立给后边
+
+// == 相对比较 --->会把两边的数据类型转换为同一种再去比较
+// === 绝对比较 -->先看两边是不是同一个数据类型，若不是，则直接就是false。若是，则再去比较值是否相等
+    console.log('0'== 0)//都转换为数字再去比较
+    console.log([]==false)//先把引用数字类型转换为字符串，再把字符串转换为数字，再去比较 true
+    console.log(![]==false)
+
+    // js中两大数据类型
+    // 基本数据类型(值类型）：string number boolean null undefined
+    // 引用数据类型：[] {} function data math 正则....
+    // 基本数据类型操作的都是一个值：引用数据类型操作的都是一个地址
+    var name="珠峰",age=9;
+    console.log("我的名字是"+name+"我的年龄是"+age)
+    var str=`我的名字是${name}
+    我的年龄是${age}`
+    console.log(str)
+
+    var str2='124\'sdf'//若想用单引号包含单引号：我们需要用\把字符串的单引号转义
+    console.log(str2)
+
+    //number类型
+    Number();
+    parseInt();
+    parseFloat();
+    NaN==NaN //false
+    isNaN(1/'a')//判断参数是否为NaN 若是则返回true，否则返回false
+    // typeof 查看数据类型，返回结果是字符串
+    typeof typeof 1   //'string'
+
+    //对象中获取属性值的两种方式：一种是打点，另一种是[]，中括号的这种方式一般适用于 属性值是通过变量获取的情况
+for(i=0;i<10;i++){
+    switch(i%4){
+        case 1:
+        case 3:
+        i+=1;
+        break;
+        case 0:
+        case 2:
+        i+=2;
+        break;
+        default:i+=4;
+    }
+}
+// i = 0 ; 0 < 10 ; ---> i+=2 --> 2 -->3
+// i = 3 ; 3 < 10; ---> i+=1 --> 4 -->5
+// i = 5 ; 5 < 10; ---> i+=1 --> 6 -->7
+// i = 7 ; 7 < 10; ---> i+=1 --> 8 -->9
+// i = 9 ; 9 < 10; ---> i+=1 --> 10 -->11
+// i =11 ; 11 < 10;结束循环
+</script>
