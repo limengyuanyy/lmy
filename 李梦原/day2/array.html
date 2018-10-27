@@ -45,7 +45,7 @@
 ary = [65,34,688,456,8908];
 var ary3 = ary.sort(function (a,b) {
 return a -b;
-//返回值a - b 就是一个升序
+//返回值a-b 就是一个升序
 // 返回 b-a 就是一个降序
 })//sort 的返回结果是排好序之后的数组
 console.log(ary3 === ary)
@@ -59,7 +59,42 @@ ary.forEach(function (item,index){//item是数组的每一项，index是数组�
 })
 ary=[10,20,30,40]
 var ary2=ary.filter(function(item,index){
-    return false
+    return false //return 的值是true时，会把当前的item放进新的数组
 })
 console.log(ary2)
+
+ary.join('+')//函数组中的每一项与指定字符拼接：返回结果是个字符串
+var str='123456';
+str.split('');//把字符串与指定字符拆分成数组
+
+var ary=[23,10,20,30];//数组求和
+var t=0;
+ary.forEach(function (item){
+    t+=item;
+})
+console.log(t)
+
+
+eval(ary.join('+'))//把字符串转换成js表达式 在进行运算
+
+//查出字符串中重复最多的那个字符，并求出重复的次数
+var str='fjdkjfkdjfkjjjjfffff';
+var obj={};
+for(var i=0;i<str.length;i++){
+    if(obj[str[i]]){
+        //若对象中存在该项：则证明之前已经给该项赋过值了：直接进行++的操作即可
+        obj[str[i]]++
+    }else{
+        obj[str[i]]=1;
+    }
+}
+var max=0;//假设最大次数是0次
+var maxstr='';
+for(var k in obj){
+    if(obj[k]>max){
+        max=obj[k];
+        maxstr=k;
+    }
+}
+console.log(maxstr,max)
 </script>

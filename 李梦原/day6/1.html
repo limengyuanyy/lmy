@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function fn() {
+i = 2;
+return function (n) {
+console.log(n * i++);//i++先运算后累加
+}
+}
+var f = fn();
+f(3);
+fn()(4);
+fn()(2);
+f(2);
+
+function sum(...ary){
+    // 通过 ... 把传进来的实参 都放到ary这个数组中
+    //在用数组的 join 把数组的每一项用 + 拼接成字符串
+    //再用 eval 把拼接好的字符串 转成 表达式计算
+    return eval(ary.join('+'))//求和
+}
+sum(1,2,3,4,5)
+</script>

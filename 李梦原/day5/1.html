@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+    闭包机制：变量的保护机制
+    */
+   function fn(){
+       var a=12
+   }
+   fn()
+   console.log(a)//报错
+
+   function fn2(){
+       var a=12
+       return function(){
+           console.log(a)
+       }
+   }
+   fn2()
+</script>

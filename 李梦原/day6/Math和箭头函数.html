@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="sjz">
+        美丽的石家庄
+    </div>
+</body>
+</html>
+<script>
+    Math.floor(3.9)//向下取整  3
+    Math.ceil(3.1)//向上取整 4
+    Math.round(3.1)//四舍五入 3
+    Math.abs(-2)//绝对值 2
+    Math.random()//0-1之间的随机数，包含0不包含1
+    Math.max(1,2,3,4)//求一组数中的最大值  4
+    Math.min(1,2,3,4)//求一组数中的最小值  1
+
+    let fn2=(a,b)=>{
+        //箭头函数没有arguments；他是把arguments当做普通变量
+        //箭头函数中也没有this
+        console.log(this);
+        return a+b;
+    }
+    //普通函数中的this指向问题
+    //若是事件绑定中的函数中的this是指向绑定的元素
+    //查看函数之前有没有点，点前面是谁this就是谁，没点就是window
+    let oDiv = document.getElementById('sjz');
+    sjz.onclick = function () {
+        let obj = {
+        fn:function(){
+        console.log(this,arguments)
+        }
+        };
+        let fn2 = obj.fn;
+        console.log(fn2 === obj.fn)
+        obj.fn()
+        fn2.call(obj,1,2,4,564,7,78);
+        fn2.apply(obj,[1,2,4,564,7,78]);
+        let fn3=fn2.bind(obj,1,2,3)//新产生一个函数，想什么时候执行就什么时候执行
+        fn3()
+    }
+        //类数组
+
+        //fn.call(obj,1,2,3)
+        //把fn中的this换成obj 并把后边的这个参数传给fn
+
+        //fn.apply(obj,[1,2,3,4])
+        //把fn中的this换成obj
+        //第二个参数就是个数组或类数组
+        
+</script>
