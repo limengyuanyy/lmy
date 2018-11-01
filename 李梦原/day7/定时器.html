@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>停止</button>
+</body>
+</html>
+<script>
+    /*
+    settimeout(回调函数，等待时间)
+    经过等待时间之后  执行回调函数
+    这个等待时间是以毫秒为单位的：
+    */
+    let timer= setTimeout(()=>{
+         console.log(1111)
+    },1000)
+    clearTimeout(timer)//清除定时器
+
+    //setInterval 于 settimeout的区别
+    //setInterval 是不停的执行
+    let timer2=setInterval(()=>{
+        console.log(1111)
+    },1000)
+    btn.onclick=function(){
+        clearInterval(timer2)
+    }
+
+
+    setTimeout(()=>{
+         console.log(0)
+    },1000)
+    console.log(1)
+    //异步代码 只有在同步代码执行完毕之后才会执行异步代码
+
+    /*
+
+    date
+    let now=new Date()
+    now.getTime()//获取距离‘1970-01-01 00:00:00’毫秒数
+    */
+</script>

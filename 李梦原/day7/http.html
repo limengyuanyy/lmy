@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    http通用头
+    请求头
+    响应头
+
+    响应状态
+    2开头的代表成功
+    3开头的一般代表重定向
+    4开头的一般代表路径错误
+    5开头的一般代表服务器错误
+    */
+    /*
+    ajax：它是一种前段向后台请求数据的技术
+    */
+    let xhr=new XMLHttpRequest();
+    
+    //第一个参数是请求的方式常用get post
+    //第二个参数是请求的路径
+    //第三个参数一般是true 代表异步执行
+    xhr.open('get','./data.json',true)//true可以省略，默认是true
+    xhr.onreadystatechange=function(){
+        //监听请求状态
+        if(xhr.readyState==4 && xhr.status==200){
+            //这种状态代表请求成功
+            console.log(xhr.responseText)
+        }
+    }
+  xhr.send()
+</script>

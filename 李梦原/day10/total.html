@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+                <input type="text" v-model='name' @keyup.enter='fn'>
+                <ul>
+                    <li v-for='(item,index) in ary'>
+                        <span>{{item}}</span>
+                        <button @click='del(index)'>删除</button>
+                    </li>
+                </ul>
+        </div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            name:'',
+            ary:[]
+        },
+        methods:{
+            fn(){
+                this.ary.push(this.name);
+                this.name='';
+            },
+            del(str){
+                // this.ary.pop(this.item)
+                this.ary=this.ary.filter((item,index)=>{
+                    return str!=index
+                })
+            }
+        }
+    })
+</script>

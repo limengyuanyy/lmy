@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <!-- <h1 v-show='name'>{{name1}}</h1>
+        <h1 v-if='name'>{{name1}}</h1>
+        {{name}}
+        {{p}}
+        <div v-html='p'></div>
+        <h2 v-text='name'></h2>
+        <input v-model='name'/> -->
+        <h1 v-if='name==1'>{{name}}</h1>
+        <h2 v-else-if='name==2'>{{name}}</h2>
+        <h3 v-else>{{name+'----'+name1}}</h3>
+        <input v-model='name'/> 
+        <ul>
+            <li v-for='a in ary'>{{a}}</li>
+        </ul>
+        <ul>
+            <li v-show='a%2==0' v-for='(a,i) in ary' >
+                {{`元素是${a},索引是${i}`}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    /*
+    指令：简单理解成行内样式
+    v-text
+    v-html
+    v-model 一般用到input标签上
+    v-show 控制对应标签的显示和隐藏（控制的css属性）
+    v-if  控制元素标签是否加载，跟v-show的区别在于
+          v-show是把标签加载过来了：只是控制是否显示
+    */
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            name:'珠峰',
+            p:'<p>123456789</p>',
+            name1:'reeeeeeee',
+            ary:[1,2,3,4,5,6]
+        }
+    })
+</script>

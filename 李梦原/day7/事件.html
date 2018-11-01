@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="oDiv" style="width: 600px;height: 1600px;background: #ccc">
+                <div id="inner" style="width: 300px;height: 200px;background: #fff;">
+                      <a id='a' href="https://baidu.com">百度</a>
+                </div>
+            </div>
+        
+</body>
+</html>
+<script>
+ oDiv.onclick=function(e){
+  console.log(e)
+  //e.target 表示点击的事件源
+  //e.clientX  鼠标点击的位置距离可视窗口的x轴的位置
+  //e.pageX  鼠标点击的位置距离body左上角的x轴位置
+ }
+ inner.onclick=function(e){
+    
+     e.stopPropagation();
+     console.log('inner')
+     //事件的冒泡传播
+ }
+//  oDiv.onmouseleave=function(e){
+//      console.log(e)
+//  }
+document.documentElement.scrollTop=0
+window.onscroll=function(){
+    //监听页面的滚动
+console.log(11111)
+}
+a.onclick=function(e){
+    e.preventDefault();//阻止默认行为
+    alert(1)
+}
+</script>

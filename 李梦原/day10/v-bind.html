@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .current{
+            background:#ccc
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <img v-for='item in ary' v-bind:src="item" alt=""> -->
+        <img v-for='item in ary' :src="item" alt="">
+        <div :class='flag ? "current": ""'>123</div>
+        <div :class='{current:true}'>123</div>
+    </div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data: {
+            ary: [
+            'https://cms-bucket.nosdn.127.net/2018/10/30/4ed5f85f42714ef19b45133b040714e0.jpeg?imageView&thumbnail=600y250',
+            'https://cms-bucket.nosdn.127.net/2018/10/30/595d6de2720540a2a029ea942bbe35e6.jpeg?imageView&thumbnail=600y250',
+            'https://cms-bucket.nosdn.127.net/2018/10/30/c64b0a44681c4bd98d2a4ac10d7b9a25.jpeg?imageView&thumbnail=600y250',
+            'https://cms-bucket.nosdn.127.net/2018/10/30/7da5a50215584ed89c8e75ca115fa872.jpeg?imageView&thumbnail=600y250'
+            ],
+            flag:false
+        }
+    })
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let xhr= new XMLHttpRequest;
+    // xhr.open('get','./data.json?name=zf&t='+Math.random());
+    xhr.open('post','./data.json')
+    //post 请求 需要把参数放到send中
+    xhr.onreadystatechange = function () {
+    if(xhr.readyState == 4&& xhr.status==200){
+    console.log(xhr);
+    }
+    }
+    // xhr.send();
+    xhr.send('name=zf&age=9')
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="fn">点我</button>
+        <div :style="{color:flag ? 'red' : '#ccc'}">1234567</div>
+        <input type="text" @keyup.97='fn2'>
+    </div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            flag:false
+        },
+        methods:{
+            fn(){
+                this.flag=!this.flag
+            },
+            fn2(){
+                console.log(2222)
+            }
+        }
+    })
+</script>

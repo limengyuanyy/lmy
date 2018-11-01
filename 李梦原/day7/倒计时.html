@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span id='time'></span>
+    </div>
+</body>
+</html>
+<script>
+   var time=document.getElementById('time');
+   var mubiao=new Date('2018-10-27 12:00:00')
+
+   let timer11=setInterval(()=>{
+       var now=new Date();
+       var cha=mubiao-now;
+       //到点之后清除定时器
+       if(cha<=0){
+           clearInterval(timer11)
+           return;//打断函数执行
+       }
+
+       var hours=Math.floor(cha/3600000);
+       cha=cha-hours*3600000
+       var minute=Math.floor(cha/60000);
+       cha=cha-minute*60000
+       var second=Math.floor(cha/1000)
+
+       //三元运算符 条件？条件成立执行：条件不成立执行
+    //    hours<10?hours='0'+hours:null;
+    //    minute<10?minute='0'+minute:null;
+    //    second<10?second='0'+second:null;
+
+
+       time.innerHTML=`距离下课还有:${hours<10?'0'+hours:hours}:${ minute<10?'0'+minute:minute}:${second<10?'0'+second:second}`
+   },1000)
+   
+</script>
