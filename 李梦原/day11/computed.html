@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id='app'>
+    <!-- <input type="text" v-model='name'>
+    <h1>{{name.split('').reverse().join('')}}</h1>
+    <h2>{{name2}}</h2> -->
+    <input type='text' v-model='firstName' placeholder="第一个名">
+    <input type='text' v-model='secondName' placeholder="第二个名">
+    <input type='text' v-model='thirdName'placeholder="第三个名">
+    <h1>这个人的名字是{{fullName | upper(123) | lower}}</h1>
+</div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            name:'',
+            firstName:'TOM',
+            secondName:'JSON',
+            thirdName:'JERRY'
+        },
+        computed:{
+            //name2就是依赖于this.name的
+            //只要this.name 变化就会触发这个函数
+            name2(){
+                // console.log(this.name);
+                let str=this.name.split('').reverse().join('');
+                return str;
+
+            },
+            fullName(){
+                return `${this.firstName.toUpperCase()}·${this.secondName.toUpperCase()}·${this.thirdName.toUpperCase()}`
+            }
+        },
+        filters:{
+            upper(val,n){   
+                console.log(n);
+                return  val.toUpperCase()
+            },
+            lower(val){
+                return val.toLowerCase();
+            }
+        }
+    })
+</script>

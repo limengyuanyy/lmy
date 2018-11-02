@@ -7,15 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-        <div id="app">
-                <input type="text" v-model='name' @keyup.enter='fn($event)'>
-                <ul>
-                    <li v-for='(item,index) in ary'>
-                        <span>{{item}}</span>
-                        <button @click='del(index)'>删除</button>
-                    </li>
-                </ul>
-        </div>
+    <div id='app'>
+         <input type="text" v-model='name' @keyup.13=fn>
+         <ul>
+           <li v-for='(item,index) in ary'>
+               <span>{{item}}</span>
+               <button @click=del(index)>删除</button>
+           </li>
+         </ul>
+         
+    </div>
 </body>
 </html>
 <script src='./node_modules/vue/dist/vue.js'></script>
@@ -27,13 +28,11 @@
             ary:[]
         },
         methods:{
-            fn(e){
-                console.log(e)
+            fn(){
                 this.ary.push(this.name);
-                this.name='';
+                this.name=''
             },
             del(str){
-                // this.ary.pop(this.item)
                 this.ary=this.ary.filter((item,index)=>{
                     return str!=index
                 })
