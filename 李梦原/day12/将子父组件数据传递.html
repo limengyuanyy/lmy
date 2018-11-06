@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<body>
+<div id="app">
+     <child n=1 :ary='ary1'></child>
+     <child n=2 :ary='ary2'></child>
+     <child n=3 :ary='ary3' @aaa='fn'></child>
+</div>
+</body>
+</html>
+<template id='child'>
+    <div>
+        <h1>这是个子组件{{n}}</h1>
+        <ul>
+            <li v-for='item in ary'>{{item}}</li>
+        </ul>
+    </div>
+</template>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    // 儿子用父亲的数据  通过属性传递
+    // 父亲用儿子的数据  通过自定义事件
+    Vue.component('child',{
+       template:"#child",
+       props:['n','ary'],
+       data(){
+           return {
+               name:'child',
+               arr:['qqq','www','eee']
+           }
+       },
+       mounted(){
+           this.$emit('aaa',this.arr)
+       }
+    })
+    let vm = new Vue({
+       el:'#app',
+       data:{
+           ary1:[1,2,3,4,5],
+           ary2:[100,200,300,400],
+           ary3:['a','b','c']
+       },
+       methods:{
+           fn(ary){
+               console.log(ary);
+           }
+       }
+    })
+</script>

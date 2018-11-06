@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+          <!-- v-bind 绑定行内属性 简写(:) -->
+          <div v-bind:class='current'>qqqq</div>
+          <!--计算属性 computed
+            qqq依赖于this.name
+            前提是 qqq 在页面上有显示
+          -->
+          <input type="text" v-model='name'>
+          <h1 v-show='false'>{{qqq}}</h1>
+          <!-- filters -->
+          <h2>{{qqq | upper |lower}}</h2>
+          <qqq></qqq>
+          <lmy></lmy>
+    </div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    Vue.component('qqq',{
+        template:'<h1>石家庄职业技术学院</h1>'
+    })
+    Vue.component('lmy',{
+        template:'<h1>李梦原</h1>'
+    })
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            name:'zf',
+            current:'qqq'
+        },
+        
+        computed:{
+            qqq(){
+                console.log(111)
+                return this.name + 'computed'
+            }
+        },
+        filters:{
+            upper(a){
+                return a.toUpperCase()
+            },
+            lower(b){
+                return b.toLowerCase()
+            }
+        }
+    })
+</script>

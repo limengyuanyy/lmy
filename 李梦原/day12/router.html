@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+        <router-link to='/home'>去home</router-link>
+        <router-link to='/list'>去list</router-link>
+
+    </div>
+</body>
+</html>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script src='./node_modules/vue-router/dist/vue-router.js'></script>
+<script>
+    let home={
+        template:'<h1>home<router-view></router-view></h1>'
+    }
+    let list={
+        template:'<h1>list</h1>'
+    }
+    let aaa={
+        template:'<h1>aaaaaaa</h1>'
+    }
+    let router=new VueRouter({
+        routes:[{
+            path:'/home',
+            component:home,
+            children:[
+                {
+                    path:'/home/ddd',
+                    component:aaa
+                }
+            ]
+        },
+        {
+            path:'/list',
+            component:list
+        }
+        ]
+    })
+    let vm=new Vue({
+        el:'#app',
+        router:router
+    })
+</script>

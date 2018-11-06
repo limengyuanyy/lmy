@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+         <qqq></qqq>
+         
+         <www></www>
+    </div>
+</body>
+</html>
+<!-- template只能包含一个根元素 -->
+<template id='aaa'>
+<div>
+    <h1>这是个template</h1>
+    {{name}}
+    <h2>哈哈哈{{name}}</h2>
+    <button @click='fn'>点我</button>
+    
+</div>
+
+</template>
+<template id='bbb'>
+    <div>
+        <h1>这是个局部组件</h1>
+        <qqq></qqq>
+    </div>
+</template>
+<script src='./node_modules/vue/dist/vue.js'></script>
+<script>
+    Vue.component('qqq',{
+        template:'#aaa',
+        data(){
+           return{
+               name:'石家庄'
+           }
+        },
+        methods:{
+            fn(){
+                console.log('this is a component')
+            }
+           
+        }
+    })
+    let child={
+        template:'#bbb',
+        data(){
+            return{
+                name: 'abc'
+            }
+        }
+
+    }
+    //局部组件 使用：需要再对应的组件中使用components属性：
+    // 并把对应的组件放入
+    let vm=new Vue({
+        el:'#app',
+        components:{
+            www:child
+        }
+
+    })
+</script>
